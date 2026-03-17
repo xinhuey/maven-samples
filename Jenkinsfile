@@ -13,7 +13,7 @@ pipeline {
 
     stage('run') {
       steps {
-        bat 'mvn clean compile test verify'
+        bat 'mvn verify'
       }
     }
 
