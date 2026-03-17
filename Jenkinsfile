@@ -5,13 +5,19 @@ pipeline {
         jdk 'Java_25'
     }
   stages {
-    stage('checkout') {
+    stage('build') {
       steps {
-        git(url: 'https://github.com/xinhuey/maven-samples.git', branch: 'master')
+        bat 'mvn clean install'
       }
     }
 
-    stage('run') {
+    stage('test') {
+      steps {
+        bat 'mvn test'
+      }
+    }
+
+    stage('verify') {
       steps {
         bat 'mvn verify'
       }
